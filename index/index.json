@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "audio-play":"../component/audio-play"
+  },
+  "navigationBarTitleText": "音频播放"
+}

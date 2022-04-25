@@ -1,0 +1,18 @@
+
+.audio-warp{
+  width: 100%;
+  height: 200rpx;
+  padding: 15rpx;
+  box-sizing: border-box;
+}
+.wx-slider-thumb {
+  /* display: none; */
+  width: 14px!important;
+  height: 14px!important;
+  margin-top: -7px!important;
+  margin-left: -7px!important;
+}
+.audio-btn{
+  display: flex;
+  justify-content: center;
+}
