@@ -1,9 +1,10 @@
-// pages/ceshi/ceshi.js
+
 const innerAudioContext = wx.createInnerAudioContext()
 Component({
-  properties:{
+  properties :{
     url:{
       type:String,
+      value:null
     }
   },
   data: {
@@ -14,10 +15,18 @@ Component({
   ready() {
     innerAudioContext.autoplay = false
     innerAudioContext.src = this.data.url
+    // innerAudioContext.src = 'https://v.dyjyzyk.dtdjzx.gov.cn/resource-mydzb/2222.mp3'
+    // innerAudioContext.src = 'https://v.dyjyzyk.dtdjzx.gov.cn/resource-mydzb/王佳杨-孤独.flac'
     innerAudioContext.onTimeUpdate((res)=>{
+      console.log(res,'======>');
       this.setData({
         totalTime:Math.ceil(innerAudioContext.duration),
         currentTime:Math.ceil(innerAudioContext.currentTime)
+      })
+    })
+    innerAudioContext.onCanplay(()=>{
+      this.setData({
+
       })
     })
     innerAudioContext.onEnded((res)=>{
@@ -53,5 +62,8 @@ Component({
       innerAudioContext.pause()
       this.setData({isplay:false})
     },
-  }
+  },
+  detached(){
+    innerAudioContext.destroy()
+  },
 })
