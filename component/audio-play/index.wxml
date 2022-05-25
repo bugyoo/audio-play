@@ -1,7 +1,7 @@
 <!--pages/ceshi/ceshi.wxml-->
 <view class="audio-warp">
   <view class="audio-progress">
-    <slider bindchange="slider1change" min="0" value="{{currentTime}}" max="{{totalTime}}" left-icon="cancel" right-icon="success_no_circle"/></view>
+    <slider bindchange="slider1change" bindchanging="bindchanging" min="0" value="{{currentTime}}" max="{{totalTime}}" left-icon="cancel" right-icon="success_no_circle"/></view>
   <view class="audio-btn">
     <mp-icon wx:if="{{isplay}}" bindtap="pauseHanlder" type="field" icon="pause" color="black" size="{{25}}"></mp-icon>
     <mp-icon wx:else  bindtap="playHanlder" type="field" icon="play" color="black" size="{{25}}"></mp-icon>
