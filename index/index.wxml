@@ -1,1 +1,1 @@
-<audio-play url="{{url}}"></audio-play>
+<audio-play id="audio" url="{{url}}"></audio-play>

@@ -14,7 +14,7 @@ Component({
     changing:false
   },
   ready() {
-    const innerAudioContext = wx.createInnerAudioContext()
+    const innerAudioContext = wx.createInnerAudioContext({useWebAudioImplement:true})
     innerAudioContext.autoplay = false
     innerAudioContext.src = this.data.url
     // innerAudioContext.src = 'https://v.dyjyzyk.dtdjzx.gov.cn/resource-mydzb/2222.mp3'
@@ -49,7 +49,6 @@ Component({
         icon:"none"
       })
     })
-
     this.setData({innerAudioContext})
   },
   methods:{
@@ -74,6 +73,12 @@ Component({
       this.data.innerAudioContext.pause()
       this.setData({isplay:false})
     },
+    audioPause(){
+      if(this.data.innerAudioContext){
+        this.data.innerAudioContext.pause()
+        this.setData({isplay:false})
+      }
+    },
   },
   detached(){
     if(this.data.innerAudioContext){
@@ -84,5 +89,5 @@ Component({
       this.data.innerAudioContext.destroy()
       this.data.innerAudioContext = null
     }
-  },
+  }
 })
